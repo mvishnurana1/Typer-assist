@@ -12,7 +12,6 @@ class SentenceGenerator extends React.Component {
 
     componentDidMount = () => this.props.newRandomSentence(this.state.sentence);
 
-
     /**
      * The functions generates a random number 
      */
@@ -30,11 +29,6 @@ class SentenceGenerator extends React.Component {
     getRandomSentence = () => {
         let count = this.randomWordCount();
         return randomSentence({ words: count });
-    }
-
-    updateState = () => {
-        const newSentence = this.getRandomSentence();
-        this.setState({ sentence: newSentence });
     }
 
     handleChage = (event) => {

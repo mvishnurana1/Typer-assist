@@ -2,9 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from './Form';
 import RandomSentence from './SentenceGenerator';
+import MessageCard from './MessageCard';
 import './style/style.css';
 
 class App extends React.Component {
+
+    defaultProps = {
+        message: 'Hit extra space button after sentence completion...',
+        successMessage: 'Please Reload your browser...'
+    }
 
     state = {
         randomString: '',
@@ -34,13 +40,19 @@ class App extends React.Component {
                 <div>
                     <p>Success!</p>
                     <i class="fa fa-spinner fa-spin" style={{ "font-size": "48px", "color": "red" }}></i>
+                    <MessageCard>
+                        {this.defaultProps.successMessage}
+                    </MessageCard>
                 </div>
             )
         } else {
             return (
-                <div className="row">
+                <div>
                     <RandomSentence newRandomSentence={this.getRandomSentence} />
                     <Form submittedString={this.getSubmittedString} />
+                    <MessageCard>
+                        {this.defaultProps.message}
+                    </MessageCard>
                 </div>
             )
         }

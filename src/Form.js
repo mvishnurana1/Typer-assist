@@ -23,11 +23,18 @@ class Form extends React.Component {
                         autoFocus
                         onChange={this.handleInput}
                     />
-                    <input type="submit" value="submit"></input>
+                    <p>
+
+                    </p>
                 </form>
             </div>
         )
     }
+}
+
+Form.defaultProp = {
+    message: 'Add another space at the end...',
+    refresh: 'Reload the page...'
 }
 
 export default Form; 

@@ -4,6 +4,13 @@
     margin: 10%; 
 }
 
+.message {
+    color: red; 
+    border: 2px solid black; 
+    padding: 5px; 
+    margin: 4px; 
+}
+
 .custom-form {
     font-size: 2.5rem;
 }
