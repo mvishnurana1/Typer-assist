@@ -7,11 +7,6 @@ import './style/style.css';
 
 class App extends React.Component {
 
-    defaultProps = {
-        message: 'Hit extra space button after sentence completion...',
-        successMessage: 'Please Reload your browser...'
-    }
-
     state = {
         randomString: '',
         userEnteredString: ''
@@ -27,17 +22,20 @@ class App extends React.Component {
     }
 
     getSubmittedString = (input) => this.setState({ userEnteredString: input });
-
     getRandomSentence = (sentence) => this.setState({ randomString: sentence });
 
     renderContent = () => {
         if (this.compareString()) {
             return (
                 <div>
-                    <p>Success!</p>
-                    <i class="fa fa-spinner fa-spin" style={{ "font-size": "48px", "color": "red" }}></i>
                     <MessageCard>
-                        {this.defaultProps.successMessage}
+                        <div className="row">
+                            <h3> {App.defaultProps.successMessage} </h3>
+                            <p>
+                                <i class="fa fa-spinner fa-spin" style={{ "font-size": "48px", "color": "red" }} />
+                            </p>
+                            <img src="https://media2.giphy.com/media/l0ErFafpUCQTQFMSk/giphy.gif" alt="" />
+                        </div>
                     </MessageCard>
                 </div>
             )
@@ -47,7 +45,7 @@ class App extends React.Component {
                     <RandomSentence newRandomSentence={this.getRandomSentence} />
                     <Form submittedString={this.getSubmittedString} />
                     <MessageCard>
-                        {this.defaultProps.message}
+                        {App.defaultProps.message}
                     </MessageCard>
                 </div>
             )
@@ -67,6 +65,11 @@ class App extends React.Component {
             </div>
         );
     }
+}
+
+App.defaultProps = {
+    message: 'Hit extra space button after sentence completion...',
+    successMessage: 'Please Reload your browser...'
 }
 
 ReactDOM.render(<App />, document.getElementById("root")); 

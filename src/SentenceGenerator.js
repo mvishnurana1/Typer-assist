@@ -30,7 +30,7 @@ class SentenceGenerator extends React.Component {
 
     render() {
         return (
-            < form onChange={this.handleChage} >
+            <form onChange={this.handleChage} >
                 <h3 onCopy={this.tryOnCopy} >{this.state.sentence}</h3>
             </form >
         )
