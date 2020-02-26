@@ -22,17 +22,14 @@ class App extends React.Component {
 
     getSubmittedString = (input) => {
         this.setState({ userEnteredString: input });
-        console.log(this.state.userEnteredString);
     }
 
     getRandomSentence = (sentence) => {
-        console.log(sentence);
         this.setState({ randomString: sentence });
     }
 
     renderContent = () => {
         if (this.compareString()) {
-            console.log('success....');
             return (
                 <div>
                     <p>Success!</p>
