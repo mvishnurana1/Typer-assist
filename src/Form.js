@@ -7,7 +7,6 @@ class Form extends React.Component {
 
     handleInput = (event) => {
         this.setState({ enteredText: event.target.value })
-        console.log(this.state.enteredText);
         this.props.submittedString(this.state.enteredText);
         event.preventDefault();
     }

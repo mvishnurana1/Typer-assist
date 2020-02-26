@@ -8,20 +8,16 @@ class SentenceGenerator extends React.Component {
     componentWillMount = () => {
         let ranSentence = this.getRandomSentence();
         this.setState({ sentence: ranSentence });
-        console.log(ranSentence);
     }
 
-    componentDidMount = () => {
-        console.log(this.state.sentence);
-        this.props.newRandomSentence(this.state.sentence);
-    }
+    componentDidMount = () => this.props.newRandomSentence(this.state.sentence);
+
 
     /**
      * The functions generates a random number 
      */
     randomWordCount = () => {
         let number = Math.floor(Math.random() * 10 + 6);
-        console.log(number);
         return number;
     }
 
@@ -39,7 +35,6 @@ class SentenceGenerator extends React.Component {
     updateState = () => {
         const newSentence = this.getRandomSentence();
         this.setState({ sentence: newSentence });
-        console.log(this.state.sentence);
     }
 
     handleChage = (event) => {
