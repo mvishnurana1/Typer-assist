@@ -26,13 +26,9 @@ class App extends React.Component {
         }
     }
 
-    getSubmittedString = (input) => {
-        this.setState({ userEnteredString: input });
-    }
+    getSubmittedString = (input) => this.setState({ userEnteredString: input });
 
-    getRandomSentence = (sentence) => {
-        this.setState({ randomString: sentence });
-    }
+    getRandomSentence = (sentence) => this.setState({ randomString: sentence });
 
     renderContent = () => {
         if (this.compareString()) {
