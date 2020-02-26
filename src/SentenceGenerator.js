@@ -15,10 +15,7 @@ class SentenceGenerator extends React.Component {
     /**
      * The functions generates a random number 
      */
-    randomWordCount = () => {
-        let number = Math.floor(Math.random() * 10 + 6);
-        return number;
-    }
+    randomWordCount = () => Math.floor(Math.random() * 10 + 6);
 
     /**
      * the functions gets a random number 
@@ -26,19 +23,15 @@ class SentenceGenerator extends React.Component {
      * same sentence using the randomSentence 
      * API
      */
-    getRandomSentence = () => {
-        let count = this.randomWordCount();
-        return randomSentence({ words: count });
-    }
+    getRandomSentence = () => randomSentence({ words: this.randomWordCount() });
 
-    handleChage = (event) => {
-        event.preventDefault();
-    }
+    handleChage = (event) => event.preventDefault();
+    tryOnCopy = (event) => event.preventDefault();
 
     render() {
         return (
             < form onChange={this.handleChage} >
-                <h3>{this.state.sentence}</h3>
+                <h3 onCopy={this.tryOnCopy} >{this.state.sentence}</h3>
             </form >
         )
     }
