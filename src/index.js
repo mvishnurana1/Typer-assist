@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form from './Form';
+import FormArea from './Form';
 import RandomSentence from './SentenceGenerator';
 import MessageCard from './MessageCard';
 import './style/style.css';
@@ -27,25 +27,23 @@ class App extends React.Component {
     renderContent = () => {
         if (this.compareString()) {
             return (
-                <div>
-                    <MessageCard>
-                        <div className="row">
-                            <h3> {App.defaultProps.successMessage} </h3>
-                            <p>
-                                <i class="fa fa-spinner fa-spin" style={{ "font-size": "48px", "color": "red" }} />
-                            </p>
-                            <img src="https://media2.giphy.com/media/l0ErFafpUCQTQFMSk/giphy.gif" alt="" />
-                        </div>
-                    </MessageCard>
-                </div>
+                <MessageCard>
+                    <div className="row text-justify">
+                        <h3> {App.defaultProps.successMessage} </h3>
+                        <p>
+                            <i class="fa fa-spinner fa-spin" style={{ "font-size": "48px", "color": "red" }} />
+                        </p>
+                        <img src="https://media2.giphy.com/media/l0ErFafpUCQTQFMSk/giphy.gif" alt="" />
+                    </div>
+                </MessageCard>
             )
         } else {
             return (
                 <div>
                     <RandomSentence newRandomSentence={this.getRandomSentence} />
-                    <Form submittedString={this.getSubmittedString} />
+                    <FormArea submittedString={this.getSubmittedString} />
                     <MessageCard>
-                        {App.defaultProps.message}
+                        <h2>{App.defaultProps.message}</h2>
                     </MessageCard>
                 </div>
             )

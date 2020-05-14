@@ -1,7 +1,8 @@
 import React from 'react';
 import './style/style.css';
+import { Form } from 'react-bootstrap';
 
-class Form extends React.Component {
+class FormArea extends React.Component {
 
     state = { enteredText: '' };
 
@@ -13,28 +14,23 @@ class Form extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <form>
-                    <textarea
-                        value={this.state.enteredText}
-                        spellCheck="false"
-                        className="u-full-width custom-form"
-                        placeholder="enter text here..."
-                        autoFocus
-                        onChange={this.handleInput}
-                    />
-                    <p>
-
-                    </p>
-                </form>
-            </div>
+            <Form>
+                <Form.Control as="textarea" rows="4" cols="65"
+                    value={this.state.enteredText}
+                    spellCheck="false"
+                    className="u-full-width custom-form"
+                    placeholder="enter text here..."
+                    autoFocus
+                    onChange={this.handleInput}
+                />
+            </Form>
         )
     }
 }
 
-Form.defaultProp = {
+FormArea.defaultProp = {
     message: 'Add another space at the end...',
     refresh: 'Reload the page...'
 }
 
-export default Form; 
+export default FormArea; 
